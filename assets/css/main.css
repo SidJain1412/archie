@@ -1,9 +1,9 @@
 /* CSS Custom Properties */
 :root {
   /* Light theme colors */
-  --color-primary: #dc143c;
-  --color-primary-hover: #b91c3c;
-  --color-border: #663399;
+  --color-primary: #1bb364;
+  --color-primary-hover: #158a4d;
+  --color-border: navy;
   --color-callout: #1e90ff;
   --color-text: #232333;
   --color-text-muted: #737373;
@@ -67,12 +67,12 @@ body {
 
 /* Selection styles */
 ::selection {
-  background: var(--color-primary, #dc143c);
+  background: var(--color-primary, #1bb364);
   color: #ffffff;
 }
 
 ::-moz-selection {
-  background: var(--color-primary, #dc143c);
+  background: var(--color-primary, #1bb364);
   color: #ffffff;
 }
 
@@ -132,24 +132,26 @@ blockquote {
 /* Links */
 a {
   /* Fallback for older browsers */
-  border-bottom: 3px solid var(--color-primary, #dc143c);
+  border-bottom: 2px solid var(--color-primary, #1bb364);
   /* Modern logical properties */
-  border-block-end: 3px solid var(--color-primary, #dc143c);
+  border-block-end: 2px solid var(--color-primary, #1bb364);
   color: inherit;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-a:hover,
-a:focus {
-  background-color: var(--color-primary-hover, #b91c3c);
-  color: #ffffff;
-  outline: 2px solid var(--color-primary, #dc143c);
-  outline-offset: 2px;
+a:hover {
+  background-color: navy;
+  color: #fff;
+  border-bottom-width: 3px;
 }
 
 a:focus {
-  outline-style: solid;
+  background-color: navy;
+  color: #fff;
+  border-bottom-width: 3px;
+  outline: 2px solid var(--color-primary, #1bb364);
+  outline-offset: 2px;
 }
 
 /* Lists */
@@ -168,7 +170,7 @@ ul li {
 ul > li::before {
   content: '* ';
   font-weight: bold;
-  color: var(--color-primary, #dc143c);
+  color: var(--color-primary, #1bb364);
 }
 
 /* Images */
@@ -220,7 +222,7 @@ figure h4 {
 
 figure h4::before {
   content: '↳ ';
-  color: var(--color-primary, #dc143c);
+  color: var(--color-primary, #1bb364);
 }
 
 /* Code blocks */
@@ -292,7 +294,6 @@ header .main {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-size: 1.2rem;
   /* Fallback for older browsers */
   margin-top: 2em;
   margin-bottom: 0.5em;
@@ -302,12 +303,36 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
-h1::before { color: var(--color-primary, #dc143c); content: '# '; }
-h2::before { color: var(--color-primary, #dc143c); content: '## '; }
-h3::before { color: var(--color-primary, #dc143c); content: '### '; }
-h4::before { color: var(--color-primary, #dc143c); content: '#### '; }
-h5::before { color: var(--color-primary, #dc143c); content: '##### '; }
-h6::before { color: var(--color-primary, #dc143c); content: '###### '; }
+h1 {
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 1.05rem;
+}
+
+h3 {
+  font-size: 0.9rem;
+}
+
+h4 {
+  font-size: 0.75rem;
+}
+
+h5 {
+  font-size: 0.6rem;
+}
+
+h6 {
+  font-size: 0.5rem;
+}
+
+h1::before { color: var(--color-primary, #1bb364); content: '# '; }
+h2::before { color: var(--color-primary, #1bb364); content: '## '; }
+h3::before { color: var(--color-primary, #1bb364); content: '### '; }
+h4::before { color: var(--color-primary, #1bb364); content: '#### '; }
+h5::before { color: var(--color-primary, #1bb364); content: '##### '; }
+h6::before { color: var(--color-primary, #1bb364); content: '###### '; }
 
 .meta {
   color: var(--color-text-meta, #999999);
@@ -417,8 +442,8 @@ footer {
 
 .soc:hover,
 .soc:focus {
-  color: var(--color-primary, #dc143c);
-  outline: 2px solid var(--color-primary, #dc143c);
+  color: var(--color-primary, #1bb364);
+  outline: 2px solid var(--color-primary, #1bb364);
   outline-offset: 2px;
 }
 
@@ -530,9 +555,9 @@ article .title {
 
 .tags a {
   /* Fallback for older browsers */
-  border-bottom: 3px solid var(--color-primary, #dc143c);
+  border-bottom: 3px solid var(--color-primary, #1bb364);
   /* Modern logical properties */
-  border-block-end: 3px solid var(--color-primary, #dc143c);
+  border-block-end: 3px solid var(--color-primary, #1bb364);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   transition: all 0.2s ease;
@@ -541,7 +566,7 @@ article .title {
 .tags a:hover,
 .tags a:focus {
   color: #ffffff;
-  background-color: var(--color-primary-hover, #b91c3c);
+  background-color: navy;
 }
 
 /* Icons and media */
@@ -750,9 +775,9 @@ nav {
 
 .nav-toggle:hover,
 .nav-toggle:focus {
-  background-color: var(--color-primary, #dc143c);
+  background-color: var(--color-primary, #1bb364);
   color: #ffffff;
-  outline: 2px solid var(--color-primary, #dc143c);
+  outline: 2px solid var(--color-primary, #1bb364);
   outline-offset: 2px;
 }
 
