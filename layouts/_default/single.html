@@ -1,50 +1,37 @@
 {{ define "main" }}
 <main>
-	<article>
-		<div class="title">
-			<h1 class="title">{{ .Title }}</h1>
-			{{ if isset .Params "date" }}
+  <article>
+    <div class="title">
+      <h1 class="title">{{ .Title }}</h1>
+      {{ if isset .Params "date" }}
       <div class="meta">Posted on {{ dateFormat ":date_medium" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
-			{{ end }}
-		</div>
-		{{ if isset .Params "tldr" }}
-		<div class="tldr">
-			<strong>tl;dr:</strong>
-			{{ .Params.tldr }}
-		</div>{{ end }}
+      {{ end }}
+    </div>
+    {{ if isset .Params "tldr" }}
+    <div class="tldr">
+      <strong>tl;dr:</strong>
+      {{ .Params.tldr }}
+    </div>{{ end }}
+    
+    {{ .Content }}
 
-		{{ if isset .Params "toc" }}
-		<div class="toc">
-		<strong>Table of contents:</strong>
-		{{ .TableOfContents }}
-		</div>{{ end }}
+    <!-- TOC -->
+    {{ if and (isset .Params "toc") (.Params.toc) }}
+    <div class="toc">
+      <strong>Table of contents:</strong>
+      {{ .TableOfContents }}
+    </div>
+    {{ end }}
 
-		<section class="body">
-			{{ .Content }}
-		</section>
+    <!-- Disqus -->
+    {{- $.Scratch.Set "isDisqus" true -}}
+    {{ if not .Site.Config.Services.Disqus.Shortname }}
+    {{- $.Scratch.Set "isDisqus" false -}}
+    {{ end }}
 
-		<div class="post-tags">
-			{{ if ne .Type "page" }}
-			{{ if gt .Params.tags 0 }}
-			<nav class="nav tags">
-				<ul class="tags">
-					{{ range .Params.tags }}
-					<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
-					{{ end }}
-				</ul>
-			</nav>
-			{{ end }}
-			{{ end }}
-		</div>
-		{{- $.Scratch.Set "isDisqus" true -}}
-		<!-- Check if disqus short name is given -->
-		{{ if not .Site.Config.Services.Disqus.Shortname }}
-		{{- $.Scratch.Set "isDisqus" false -}}
-		{{ end }}
-
-		{{- if eq ($.Scratch.Get "isDisqus") true -}}
-		{{- partial "disqus.html" . -}}
-		{{- end -}}
-	</article>
+    {{- if eq ($.Scratch.Get "isDisqus") true -}}
+    {{- partial "disqus.html" . -}}
+    {{- end -}}
+  </article>
 </main>
 {{ end }}
