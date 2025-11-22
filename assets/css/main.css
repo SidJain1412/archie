@@ -24,6 +24,7 @@ body{
   background-color: #e5e5f7;
   opacity: 0.08;
   background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 18px ), repeating-linear-gradient( #18f0cf, #444cf7 );
+  z-index: -1;
 }
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -36,7 +37,8 @@ body{
 
 p {
   font-family: 'Fira Sans', sans-serif;
-  line-height: 1.5;
+  line-height: 1.7;
+  margin-bottom: 1.2em;
 }
 
 hr {
@@ -53,13 +55,14 @@ blockquote {
 }
 
 a {
-  border-bottom: 3px solid var(--maincolor);
+  border-bottom: 2px solid var(--maincolor);
   color: inherit;
   text-decoration: none;
 }
 a:hover {
     background-color: var(--hovercolor);
     color: #fff;
+    border-bottom-width: 3px;
 }
 
 ul {
@@ -139,6 +142,8 @@ pre code {
   max-width: 800px;
   padding: 0 1ch;
   word-wrap: break-word;
+  position: relative;
+  z-index: 1;
 }
 
 /* Header */
@@ -162,19 +167,19 @@ h2 {
 }
 
 h3 {
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 h4 {
-  font-size: .6rem;
+  font-size: .75rem;
 }
 
 h5 {
-  font-size: .5rem;
+  font-size: .6rem;
 }
 
 h6 {
-  font-size: .4rem;
+  font-size: 0.5rem;
 }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 2em;
@@ -377,4 +382,20 @@ table th{
 table td{
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  
+  img {
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  .content {
+    padding: 0 1.5ch;
+  }
 }
