@@ -40,6 +40,11 @@ p {
   line-height: 1.5;
 }
 
+strong, b {
+  font-weight: 600;
+  font-family: 'Fira Sans', sans-serif;
+}
+
 hr {
   border: 0;
   border-top: 3px dotted var(--bordercl);
