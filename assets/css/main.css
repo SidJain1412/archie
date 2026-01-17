@@ -233,17 +233,12 @@ footer {
   display: inline-flex;
   align-items: center;
   border-bottom: none;
-  margin: 0 0.25rem;
-  padding: 0.25rem;
+  margin: 0 0.5rem;
+  padding: 0;
 }
-.border {
-  display: inline-block;
-  width: 1px;
-  height: 15px;
-  margin: 0 0.25rem;
-  border: none;
-  border-left: 1px solid;
-  vertical-align: middle;
+.soc .si {
+  font-size: 18px;
+  line-height: 1;
 }
 .footer-info {
   padding: 0;
@@ -261,6 +256,15 @@ time {
 /* Posts */
 article .title {
   margin-bottom: 1em;
+}
+
+/* Posts list spacing */
+.posts {
+  margin-top: 2em;
+}
+
+.posts .post {
+  margin-bottom: 1.5em;
 }
 
 
@@ -432,4 +436,24 @@ table th{
 table td{
   padding: 6px 13px;
   border: 1px solid #dfe2e5;
+}
+
+/* Instagram grid layout */
+.insta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.insta-grid .instagram-media {
+  max-width: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 600px) {
+  .insta-grid {
+    grid-template-columns: 1fr;
+  }
 }
